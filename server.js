@@ -24,6 +24,8 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+const whoamiRoute = require('./routes/api/whoami');
+app.use('/api/whoami', whoamiRoute);
 
 
 // listen for requests :)
