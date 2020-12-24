@@ -10,9 +10,6 @@
 		"express": "^5.0.0-alpha.2",
 		"cors": "^2.8.1"
 	},
-	"engines": {
-		"node": "4.4.5"
-	},
 	"repository": {
 		"type": "git",
 		"url": "https://hyperdev.com/#!/project/welcome-project"
