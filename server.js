@@ -18,7 +18,6 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
@@ -30,3 +29,13 @@ app.get("/api/hello", function (req, res) {
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+
+let responseObject = {};
+app.enable("trust proxy")
+app.get("/api/whoami", function (req, res) {
+  responseObject["ipaddress"] = req.ip
+  responseObject["language"] = req.get("Accept-Language")
+  responseObject["software"] = req.get("User-Agent")
+
+  res.json(responseObject)
+})
