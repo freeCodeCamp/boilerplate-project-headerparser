@@ -2,9 +2,9 @@
 	"name": "request_header",
 	"version": "0.0.1",
 	"description": "API project for freeCodeCamp",
-	"main": "server.js",
+	"main": "index.js",
 	"scripts": {
-		"start": "node server.js"
+		"start": "node index.js"
 	},
 	"dependencies": {
 		"express": "^5.0.0-alpha.2",
