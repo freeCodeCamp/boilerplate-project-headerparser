@@ -35,7 +35,7 @@ app.get("/api/whoami", (req, res) => {
     // ipAddress: req.ip,
     // ip: req.socket.remoteAddress,
     // p: req.socket.localAddress,
-    r: req.headers["x-forwarded-for"].split(","),
+    r: req.headers["x-forwarded-for"].split(",", 1),
   });
 });
 
