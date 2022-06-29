@@ -27,15 +27,15 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/whoami", (req, res) => {
   // console.log(req.info.remoteAddress);
-  const headerIp = requestIp.getClientIp(req);
+  const headerIp = req.headers["user-agent"].split("/'");
+  console.log(req.headers["user-agent"]);
   console.log(headerIp);
-  console.log("Header:", JSON.stringify(req.headers));
   res.json({
     // i: headerIp,
     // ipAddress: req.ip,
     // ip: req.socket.remoteAddress,
     // p: req.socket.localAddress,
-    r: req.headers["x-forwarded-for"],
+    r: req.headers["x-forwarded-for:"].split(","),
   });
 });
 
