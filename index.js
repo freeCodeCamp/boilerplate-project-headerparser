@@ -29,13 +29,13 @@ app.get("/api/whoami", (req, res) => {
   // console.log(req.info.remoteAddress);
   const headerIp = requestIp.getClientIp(req);
   console.log(headerIp);
-  console.log("Header:", req.headers);
+  console.log("Header:", JSON.stringify(req.headers));
   res.json({
-    i: headerIp,
-    ipAddress: req.ip,
-    ip: req.socket.remoteAddress,
-    p: req.socket.localAddress,
-    r: req.headers,
+    // i: headerIp,
+    // ipAddress: req.ip,
+    // ip: req.socket.remoteAddress,
+    // p: req.socket.localAddress,
+    r: req.headers["x-forwarded-for"],
   });
 });
 
