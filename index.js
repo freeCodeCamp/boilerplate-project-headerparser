@@ -29,11 +29,13 @@ app.get("/api/whoami", (req, res) => {
   // console.log(req.info.remoteAddress);
   const headerIp = requestIp.getClientIp(req);
   console.log(headerIp);
+  console.log("Header:", req.headers);
   res.json({
     i: headerIp,
     ipAddress: req.ip,
     ip: req.socket.remoteAddress,
     p: req.socket.localAddress,
+    r: req.headers,
   });
 });
 
