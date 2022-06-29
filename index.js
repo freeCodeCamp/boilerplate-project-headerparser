@@ -26,16 +26,13 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("/api/whoami", (req, res) => {
-  // console.log(req.info.remoteAddress);
-  const headerIp = req.headers["user-agent"].split("/'");
-  console.log(req.headers["user-agent"]);
-  console.log(headerIp);
+  var ipAddress = req.headers["x-forwarded-for"].split(",", 1).toString();
+  var languageGetter = req.headers["accept-language"];
+  var softwareGetter = req.headers["user-agent"];
   res.json({
-    // i: headerIp,
-    // ipAddress: req.ip,
-    // ip: req.socket.remoteAddress,
-    // p: req.socket.localAddress,
-    r: req.headers["x-forwarded-for"].split(",", 1).toString(),
+    ipaddress: ipAddress,
+    language: languageGetter,
+    software: softwareGetter,
   });
 });
 
