@@ -25,5 +25,8 @@
     "node",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "myDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
